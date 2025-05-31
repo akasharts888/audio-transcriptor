@@ -1,7 +1,7 @@
 // src/components/ChatInterface.jsx
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-
+const BASE_URL = "https://auto-researcher-node-api.onrender.com"
 const Message = ({ message }) => (
   <div className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
     <div className={`max-w-[70%] p-3 rounded-lg ${
@@ -45,7 +45,7 @@ const ChatInterface = () => {
     setInput('');
 
     try{
-      const response = await fetch('http://localhost:5000/api/query', {
+      const response = await fetch(`${BASE_URL}/api/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

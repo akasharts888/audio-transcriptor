@@ -1,7 +1,7 @@
 // src/components/AudioRecorder.jsx
 import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
+const BASE_URL = "https://auto-researcher-node-api.onrender.com"
 const AudioRecorder = ({ onTranscriptionReceived }) => {
   const [isRecording, setIsRecording] = useState(false);
   const [error, setError] = useState(null);
@@ -90,7 +90,7 @@ const AudioRecorder = ({ onTranscriptionReceived }) => {
       console.log('Sending audio file size:', audioBlob.size, 'bytes');
       console.log('Sending transcript length:', transcriptData.text.length, 'characters');
   
-      const response = await fetch('http://localhost:5000/api/transcribe', {
+      const response = await fetch(`${BASE_URL}/transcribe`, {
         method: 'POST',
         body: formData,
       });
