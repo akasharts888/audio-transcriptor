@@ -90,7 +90,7 @@ const AudioRecorder = ({ onTranscriptionReceived }) => {
       console.log('Sending audio file size:', audioBlob.size, 'bytes');
       console.log('Sending transcript length:', transcriptData.text.length, 'characters');
   
-      const response = await fetch(`${BASE_URL}/transcribe`, {
+      const response = await fetch(`${BASE_URL}/api/transcribe`, {
         method: 'POST',
         body: formData,
       });
